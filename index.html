@@ -11,7 +11,7 @@
     
     <script src="sketch.js"></script>
     <h1><center>Tone Generator 25 July 2023 </center> </h1>
-    <h4> Debug touch event </h4>
+    
     <h5> <center>VU2SRB</center></h5>
 <p>This program generates tones from 30 Hz to 2000 Hz.</p>
  
@@ -35,7 +35,7 @@ var frequency = document.getElementById("frequency");
 var frequencyValue = document.getElementById("frequency-value");
 var tone = document.getElementById("tone");
 
-frequency.addEventListener("touch", function() {
+frequency.addEventListener("change", function() {
   frequencyValue.innerHTML = frequency.value+ " Hz";
   var audioContext = new AudioContext();
   var osc = audioContext.createOscillator();
