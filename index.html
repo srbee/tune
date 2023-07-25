@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    
+    <script src="sketch.js"></script>
+    <h1><center>Tone Generator</center> </h1>
+    <h5> <center>VU2SRB</center></h5>
+<p>This program generates tones from 30 Hz to 2000 Hz.</p>
+ 
+   Duration =  <input type="number" id="dur" value="1"> Seconds
+    <br><br><br>
+    
+    
+ <br>Click / pull  the slider to create / change the tone <br>
+    
+<input type="range" id="frequency" min="30" max="2000" step="10" />
+<p>Frequency= <span id="frequency-value">1020 Hz</span></p>
+ 
+
+<audio id="tone"></audio>
+ 
+    
+    
+    <script>
+  
+  
+  
+  
+  
+  
+  
+var frequency = document.getElementById("frequency");
+var frequencyValue = document.getElementById("frequency-value");
+var tone = document.getElementById("tone");
+
+frequency.addEventListener("click", function() {
+  frequencyValue.innerHTML = frequency.value+ " Hz";
+  var audioContext = new AudioContext();
+  var osc = audioContext.createOscillator();
+  osc.frequency.setValueAtTime(frequency.value, audioContext.currentTime);
+  osc.connect(audioContext.destination);
+  osc.start();
+  setTimeout(function() {
+    osc.stop()
+}, dur.value*1000);
+  
+  
+  
+  
+  
+  
+});
+</script>
+    
+    
+    
+    
+  </body>
+</html>
